@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
+import List from './components/List'
 import { Jumbotron, Button, Grid, Row, Col, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 
 class App extends Component {
@@ -43,6 +44,7 @@ class App extends Component {
                   </Row>
                 </Grid>
               </Jumbotron>
+              <Route exact path="/list" component={List} />
             </div>
           </div>
         </Router>
