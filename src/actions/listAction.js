@@ -18,8 +18,12 @@ export const searchClimate = (selectInput) => {
                 }
                 res.data.list.forEach(dataVal => {
                     let variance = dataVal.temp.max - dataVal.temp.min
+                    let timestamp = dataVal.dt;
+                    let date = new Date(timestamp * 1000);
+                    let iso = date.toISOString().match(/(\d{4}\-\d{2}\-\d{2})T(\d{2}:\d{2}:\d{2})/)
+
                     result.list.push({
-                        day: dataVal.dt,
+                        day: iso[1],
                         temperature: dataVal.temp.day,
                         variance: +variance.toFixed(2)
                     })
