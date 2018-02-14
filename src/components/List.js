@@ -1,10 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 import { Grid, Row, Col, Table } from 'react-bootstrap'
 
-const List = () => {
+const List = (props) => {
     return (
         <div>
             <Grid>
@@ -13,22 +12,23 @@ const List = () => {
                         <Table striped bordered condensed hover>
                             <thead>
                                 <tr>
-                                    <th>Jakarta</th>
+                                    <th>{props.listClimate.city}</th>
                                     <th>Temperature</th>
                                     <th>Variance</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+                                <tr >
+                                    <td>date</td>
+                                    <td>tempC</td>
+                                    <td>varianceC</td>
                                 </tr>
                             </tbody>
-                        </Table>;
+
+                        </Table>
                     </Col>
                     <Col xs={6} md={4}>
-                        <code>&lt;{'Col xs={6} md={4}'} /&gt;</code>
+                        sidebar
                     </Col>
                 </Row>
             </Grid>
@@ -36,4 +36,10 @@ const List = () => {
     )
 }
 
-export default List
+const mapStateToProps = (state) => {
+    return {
+        listClimate: state.ListClimate
+    }
+}
+
+export default connect(mapStateToProps, null)(List)

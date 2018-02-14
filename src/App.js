@@ -16,9 +16,15 @@ class App extends Component {
     }
   }
 
+  handleChange(value) {
+    this.setState({
+      currValue: value
+    })
+  }
+
   render() {
     return (
-      <Provider>
+      <Provider store={Store}>
         <Router>
           <div>
             <div className="container">
@@ -33,13 +39,14 @@ class App extends Component {
                       <form>
                         <FormGroup>
                           <ControlLabel>check the weather climate in your city</ControlLabel>
-                          <FormControl componentClass="select" placeholder="select">
-                            <option value="select">select</option>
-                            <option value="other">...</option>
+                          <FormControl componentClass="select" placeholder="select" onChange={(e) => this.handleChange(e.target.value)}>
+                            <option value="Jakarta">Jakarta</option>
+                            <option value="Tokyo">Tokyo</option>
+                            <option value="London">London</option>
                           </FormControl>
                         </FormGroup>
-                        <Button type="submit">
-                          Submit
+                        <Button type="submit" onClick={() => Store.dispatch(searchClimate(this.state.currValue))}>
+                          <Link to='/list'>Submit</Link>
                         </Button>
                       </form>
                     </Col>
