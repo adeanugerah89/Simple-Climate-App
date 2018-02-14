@@ -28,14 +28,14 @@ export const searchClimate = (selectInput) => {
                     return curVal + nextVal.temperature
                 }, 0)
                 let newDataAvgTemp = avgTemp / result.list.length
-                result.avgTemp = newDataAvgTemp
+                result.avgTemp = +newDataAvgTemp.toFixed(2)
 
                 let avgVar = result.list.reduce((curVal, nextVal) => {
                     return curVal + nextVal.variance
                 }, 0)
                 let newDataAvgVar = avgVar / result.list.length
                 result.avgVar = +newDataAvgVar.toFixed(2)
-                console.log(result)
+
                 dispatch(listClimate(result))
             })
             .catch(err => console.log(err))

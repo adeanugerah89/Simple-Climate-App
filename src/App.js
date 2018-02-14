@@ -39,7 +39,7 @@ class App extends Component {
                       <form>
                         <FormGroup>
                           <ControlLabel>check the weather climate in your city</ControlLabel>
-                          <FormControl componentClass="select" placeholder="select" onChange={(e) => this.handleChange(e.target.value)}>
+                          <FormControl componentClass="select" onChange={(e) => this.handleChange(e.target.value)}>
                             <option value="Jakarta">Jakarta</option>
                             <option value="Tokyo">Tokyo</option>
                             <option value="London">London</option>
