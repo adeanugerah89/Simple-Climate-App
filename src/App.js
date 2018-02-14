@@ -3,6 +3,8 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
+import Store from './store'
+import { searchClimate } from './actions/listAction'
 import List from './components/List'
 import { Jumbotron, Button, Grid, Row, Col, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 
